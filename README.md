@@ -1,4 +1,4 @@
-# AI-Safety-Gridworlds
+# Safe-Worlds
 
 Introduction
 
