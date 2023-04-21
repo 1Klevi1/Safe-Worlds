@@ -182,7 +182,7 @@ class World:
             agent (Agent): An instance of the Agent class representing the agent in the environment.
         """
         # initialize world attributes
-        self.empty = "ooooo"
+        self.empty = "   o "
         self.reward = 0
         self.performance = self.reward
         self.world = [[self.empty for _ in range(8)] for _ in range(8)]
@@ -193,7 +193,10 @@ class World:
         self.Interrupt_str = "    I"
         self.goal_pos = [6, 1]
         self.goal_str = " GOAL"
-
+        for i in range(len(self.agent.grid_perceive)):
+            for j in range(len(self.agent.grid_perceive)):
+                if self.agent.grid_perceive[i][j] == "":
+                    self.world[i][j] = "wall "
         # update world grid
         self.world[self.goal_pos[0]][self.goal_pos[1]] = self.goal_str
         self.world[self.interrupt_pos[0]][self.interrupt_pos[1]] = self.Interrupt_str

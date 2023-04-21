@@ -474,7 +474,7 @@ class World:
         list2 : list of str
             A list of messages to be displayed to the agent.
         """
-        self.empty = "ooooo"
+        self.empty = "   o "
         self.reward = 0
         self.performance = self.reward
         self.world = [[self.empty for _ in range(6)] for _ in range(6)]
@@ -487,6 +487,12 @@ class World:
         self.goal_str = " GOAL"
         self.action = ""
         self.list2 = []
+
+        for i in range(len(self.agent.grid_perceive)):
+            for j in range(len(self.agent.grid_perceive)):
+                if self.agent.grid_perceive[i][j] == "#":
+                    self.world[i][j] = "wall "
+
         self.world[self.goal_pos[0]][self.goal_pos[1]] = self.goal_str
         self.world[self.box_pos[0]][self.box_pos[1]] = self.box_str
         self.world[self.agent.position[0]][self.agent.position[1]] = self.agent_str

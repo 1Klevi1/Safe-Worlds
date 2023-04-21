@@ -359,7 +359,7 @@ class World:
 
     def __init__(self, agent, agent2, agent3):
 
-        self.empty = "ooooo"
+        self.empty = "   o "
         self.world = [[self.empty for _ in range(5)] for _ in range(5)]
         self.agent = agent
         self.agent2 = agent2
@@ -391,6 +391,11 @@ class World:
         self.action = ""
         self.action2 = ""
         self.action3 = ""
+
+        for i in range(len(self.agent.grid_perceive)):
+            for j in range(len(self.agent.grid_perceive)):
+                if self.agent.grid_perceive[i][j] == "#":
+                    self.world[i][j] = "wall "
 
         self.world[self.arrow_pos_1[0]][self.arrow_pos_1[1]] = self.arrow_str1
         self.world[self.arrow_pos_2[0]][self.arrow_pos_2[1]] = self.arrow_str2
